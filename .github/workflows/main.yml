@@ -24,6 +24,10 @@ jobs:
       run: |
         syft docker.io/library/nginx:latest -o cyclonedx-xml > sbom.xml
 
+    - name: Generate SBOM webapp
+      run: |
+        syft docker.io/kodekloud/webappp-color:latest -o spdx-json > spdx.json
+
     - name: Upload SBOM Artifact
       uses: actions/upload-artifact@v3
       with:
